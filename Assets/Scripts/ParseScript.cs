@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+
 public class NovelBranch
 {
 	public string title;
@@ -22,6 +23,7 @@ public abstract class NovelFrame
 	{
 		return  token.ToString()+":" + payload.ToString();
 	}
+
 }
 
 public class NovelOption : NovelFrame
@@ -31,8 +33,8 @@ public class NovelOption : NovelFrame
 		return  token.ToString()+"=>("+target+"):" + payload.ToString();
 	}
 
-	string title;
-	string target;
+	public string title;
+	public string target;
 	public NovelOption(ref List<FrameFragment> fragments)
 	{ 
 		token = Tokens.option;
@@ -51,6 +53,7 @@ public class NovelJump : NovelFrame
 		payload = fragments[0].payload;
 		fragments.Remove(fragments[0]);
 	}
+
 }
 
 public class NovelHideCharacter : NovelFrame
@@ -75,7 +78,7 @@ public class NovelDirective : NovelFrame
 
 public class NovelOptions : NovelFrame
 {
-	List<NovelOption> options;
+	public List<NovelOption> options;
 
 	public override string ToString()
 	{
@@ -171,8 +174,10 @@ public class NovelMonologue : NovelFrame
 
 public class NovelLine : NovelFrame
 {
-	public NovelLine(ref List<FrameFragment> lines)
+	public string character;
+	public NovelLine(ref List<FrameFragment> lines, NovelCharacter character)
 	{
+		this.character = character.name;
 		token = Tokens.line;
 
 		List<FrameFragment> selected = new List<FrameFragment>();
@@ -224,8 +229,10 @@ public class NovelBackground : NovelFrame
 
 public class NovelExpression : NovelFrame
 {
-	public NovelExpression(ref List<FrameFragment> fragments)
+	public string character;
+	public NovelExpression(ref List<FrameFragment> fragments, NovelCharacter character)
 	{ 
+		this.character = character.name;
 		token = Tokens.expression;
 		payload = fragments[0].payload;
 		fragments.Remove(fragments[0]);
@@ -236,15 +243,26 @@ public class NovelCharacter : NovelFrame
 {
 	public override string ToString()
 	{
-		string result = token.ToString() + "("+name+")\n";
-		foreach (NovelFrame frame in ownedFrames)
+		string result = token.ToString() + "("+name+")";
+		if (ownedFrames != null)
 		{
-			result += frame.ToString() + "\n";
+			result+="\n";
+			foreach (NovelFrame frame in ownedFrames)
+			{
+				result += frame.ToString() + "\n";
+			}
 		}
 		return result;
 	}
 	public string name;
 	public List<NovelFrame> ownedFrames;
+	public List<NovelFrame> Flatten()
+	{
+		List<NovelFrame> frames = ownedFrames;
+		ownedFrames = null;
+		frames.Insert(0, this);
+		return frames;
+	}
 	public NovelCharacter(ref List<FrameFragment> fragments)
 	{
 		token = Tokens.character;
@@ -261,11 +279,11 @@ public class NovelCharacter : NovelFrame
 			{
 				case Tokens.expression:
 				{
-					ownedFrames.Add(new NovelExpression(ref fragments));
+					ownedFrames.Add(new NovelExpression(ref fragments, this));
 				} break;
 				case Tokens.line:
 				{
-					ownedFrames.Add(new NovelLine(ref fragments));
+					ownedFrames.Add(new NovelLine(ref fragments, this));
 				} break;
 				default:
 				{
@@ -294,7 +312,7 @@ public class FrameFragment
 
 }
 
-public class ParseScript : MonoBehaviour {
+public class ParseScript {
 
 	ParseState state = ParseState.none;
 
@@ -302,7 +320,7 @@ public class ParseScript : MonoBehaviour {
 	public enum ParseState { none=0, branch, character, line, options, option}
 
 	// Use this for initialization
-	void Start () {
+	public List<NovelBranch> LoadScript () {
 		//StreamReader reader = new StreamReader("Assets/Resources/LDSCRIPTRRG.script");
 		StreamReader reader = new StreamReader("Assets/Resources/script.script");
 
@@ -324,6 +342,7 @@ public class ParseScript : MonoBehaviour {
 			}
 		}
 
+		List<NovelBranch> branches = new List<NovelBranch>();
 		while (lines.Count > 0)
 		{ 
 			NovelBranch branch = ConsumeBranch(ref lines);
@@ -333,7 +352,9 @@ public class ParseScript : MonoBehaviour {
 				log += frame + "\n";
 			}
 			Debug.Log(log);
+			branches.Add(branch);
 		}
+		return branches;
 	}
 	
 	FrameFragment Parse(string line)
@@ -400,7 +421,16 @@ public class ParseScript : MonoBehaviour {
 
 		while (frames.Count > 0)
 		{ 
-			result.Add( Consume(ref frames));
+			NovelFrame frame = Consume(ref frames);
+			if (frame is NovelCharacter)
+			{
+				List<NovelFrame> flattened = (frame as NovelCharacter).Flatten();
+				result.AddRange(flattened);
+			} 
+			else
+			{
+				result.Add( frame);
+			}
 		}
 
 		lines = post;
@@ -414,27 +444,27 @@ public class ParseScript : MonoBehaviour {
 			case Tokens.background:
 			{ 
 				return new NovelBackground(ref fragments);
-			} break;
+			} 
 			case Tokens.monologue:
 			{ 
 				return new NovelMonologue(ref fragments);
-			} break;
+			} 
 			case Tokens.character:
 			{
 				return new NovelCharacter(ref fragments);
-			} break;
+			} 
 			case Tokens.options:
 			{
 				return new NovelOptions(ref fragments);
-			} break;
+			} 
 			case Tokens.hidecharacter:
 			{
 				return new NovelHideCharacter(ref fragments);
-			} break;
+			} 
 			case Tokens.directive:
 			{
 				return new NovelDirective(ref fragments);
-			}break;
+			}
 			case Tokens.jump:
 			{ 
 				return new NovelJump(ref fragments); 
@@ -446,7 +476,6 @@ public class ParseScript : MonoBehaviour {
 			 	throw new System.IndexOutOfRangeException();
 			 }
 		}
-		return null;
 	}
 
 }

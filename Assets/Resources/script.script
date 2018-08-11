@@ -15,12 +15,9 @@ branch start
 	background the park
 	
 	character Annabel
-	line 
-	I should be offended.
-	line
-	you should be offended.
-	line
-	you should be offended at the way that you should be offended at the way you offended me.
+	line I should be offended.
+	line you should be offended.
+	line you should be offended at the way that you should be offended at the way you offended me.
 	hidecharacter Annabel
 	
 	directive phone notification
@@ -37,22 +34,41 @@ exitbranch start
 
 
 branch another section
-
 	options
-
+	
 		option optiontitle A
-		jump end
-
+		jump bad end
+		
 		option optiontitle B
 		jump end
-
+		
 	endoptions
-
 exitbranch another section 
+
+branch bad end
+
+	character the evil character
+	expression evil
+	line ha, what ever will you do now?
+	line there's nothing you can do!
+	
+	character the player
+	expression heroic
+	line NOOOOOOOOOOOOOOOO
+	line whelp I guess I lose.
+	
+	monolouge
+	the end.
+	
+exitbranch bad end
 
 
 branch end
+
 	character Narrator
 	expression neutral
 	line and so it was the end.
+	monolouge
+	the end.
+	
 exitbranch end
