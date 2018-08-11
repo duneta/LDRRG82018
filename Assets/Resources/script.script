@@ -41,8 +41,10 @@ branch another section
 	options
 
 		option optiontitle A
+		jump end
 
 		option optiontitle B
+		jump end
 
 	endoptions
 

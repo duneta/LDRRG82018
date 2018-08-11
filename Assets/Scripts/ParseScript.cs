@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+public class NovelBranch
+{
+	public string title;
+	public List<NovelFrame> frames;
+	public NovelBranch(string title, List<NovelFrame> frames)
+	{
+		this.title = title;
+		this.frames = frames;
+	}
+}
+
 public abstract class NovelFrame
 {
 	public Tokens token;
@@ -15,13 +26,23 @@ public abstract class NovelFrame
 
 public class NovelOption : NovelFrame
 {
+	public override string ToString()
+	{
+		return  token.ToString()+"=>("+target+"):" + payload.ToString();
+	}
+
+	string title;
+	string target;
 	public NovelOption(ref List<FrameFragment> fragments)
 	{ 
 		token = Tokens.option;
 		payload = fragments[0].payload;
 		fragments.Remove(fragments[0]);
+
+		target = (string) new NovelJump(ref fragments).payload;
 	}
 }
+
 public class NovelJump : NovelFrame
 {
 	public NovelJump(ref List<FrameFragment> fragments)
@@ -31,6 +52,7 @@ public class NovelJump : NovelFrame
 		fragments.Remove(fragments[0]);
 	}
 }
+
 public class NovelHideCharacter : NovelFrame
 {
 	public NovelHideCharacter(ref List<FrameFragment> fragments)
@@ -40,6 +62,7 @@ public class NovelHideCharacter : NovelFrame
 		fragments.Remove(fragments[0]);
 	}
 }
+
 public class NovelDirective : NovelFrame
 {
 	public NovelDirective(ref List<FrameFragment> fragments)
@@ -303,7 +326,13 @@ public class ParseScript : MonoBehaviour {
 
 		while (lines.Count > 0)
 		{ 
-			lines = ConsumeBranch(lines);
+			NovelBranch branch = ConsumeBranch(ref lines);
+			string log = "BRANCH:"+branch.title+"\n";
+			foreach (NovelFrame frame in branch.frames)
+			{
+				log += frame + "\n";
+			}
+			Debug.Log(log);
 		}
 	}
 	
@@ -333,8 +362,10 @@ public class ParseScript : MonoBehaviour {
 		return new FrameFragment() {token = t, payload = payload};
 	}
 
-	List<FrameFragment> ConsumeBranch(List<FrameFragment> lines)
+	NovelBranch ConsumeBranch(ref List<FrameFragment> lines)
 	{
+		List<NovelFrame> result = new List<NovelFrame>();
+
 		if (lines[0].token != Tokens.branch)
 		{ throw new System.Exception("Expected TOKEN branch but got "+lines[0].token); }
 
@@ -369,10 +400,11 @@ public class ParseScript : MonoBehaviour {
 
 		while (frames.Count > 0)
 		{ 
-			Debug.Log(Consume(ref frames));
+			result.Add( Consume(ref frames));
 		}
 
-		return post;
+		lines = post;
+		return new NovelBranch(title, result);
 	}
 
 	NovelFrame Consume(ref List<FrameFragment> fragments)
