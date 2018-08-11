@@ -68,9 +68,8 @@ exitbranch bad end
 branch end
 	background green
 
-	character Narrator
-	expression neutral
-	line and so it was the end.
+	monologue
+	and so it was the end.
 	monolouge
 	the end.
 	

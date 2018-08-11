@@ -117,7 +117,7 @@ public class NovelRunner : MonoBehaviour {
 				}
 
 				title.text = ((NovelExpression)frame).character;
-				state = RunnerStates.waitOnTimer;
+				StartTimer();
 			} break;
 			case Tokens.line:
 			{
