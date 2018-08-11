@@ -331,7 +331,7 @@ public class ParseScript {
 			string outLine = string.Empty;
 			string line = reader.ReadLine();
 			line = line.TrimStart(' ','\t').TrimEnd(' ','\t');
-			if (line.StartsWith("//") || line == string.Empty)
+			if (line.StartsWith("//") || line == string.Empty || line.StartsWith("endline"))
 			{ 
 				outLine = "COMMENT: " + line;
 			}

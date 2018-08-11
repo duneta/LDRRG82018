@@ -34,6 +34,7 @@ branch start
 	// Multi-line dialog
 	line
 	...I guess I’d better delete some of this stuff. I don’t really need it any more.
+	endline
 	
 	
 	monolouge
@@ -247,6 +248,7 @@ branch start
 	// Multi-line dialog
 	line
 	Yeah! I'm uh, happy you agreed! We should....do this again sometime?
+	endline
 	
 	
 	monologue
