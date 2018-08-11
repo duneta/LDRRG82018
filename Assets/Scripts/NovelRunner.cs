@@ -15,6 +15,7 @@ public class NovelRunner : MonoBehaviour {
 
 	public float timer = 0;
 	
+	public AssetMarshal marshal;
 
 	public Text title;
 	public Text message;
@@ -36,6 +37,9 @@ public class NovelRunner : MonoBehaviour {
 
 	void Start()
 	{
+		Scrollbar bar = GetComponent<Scrollbar>();
+		
+
 		providedButton = (GameObject) Resources.Load("Button");
 		if (providedButton == null)
 		{ throw new System.Exception("providedButton template could not be loaded from resources."); }
@@ -77,8 +81,9 @@ public class NovelRunner : MonoBehaviour {
 		{
 			case Tokens.background:
 			{ 
-				title.text = "BACKGROUND";
-				message.text = (string) frame.payload;
+				title.text = string.Empty;
+				message.text = string.Empty;
+				background.sprite = marshal.Background((string)frame.payload);
 				StartTimer();
 			} break;
 			case Tokens.monologue:

@@ -322,7 +322,7 @@ public class ParseScript {
 	// Use this for initialization
 	public List<NovelBranch> LoadScript () {
 		//StreamReader reader = new StreamReader("Assets/Resources/LDSCRIPTRRG.script");
-		StreamReader reader = new StreamReader("Assets/Resources/newscript.script");
+		StreamReader reader = new StreamReader("Assets/Resources/script.script");
 
 		List<FrameFragment> lines = new List<FrameFragment>();
 		

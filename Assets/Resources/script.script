@@ -3,7 +3,7 @@
 
 branch start
 
-	background the school
+	background red
 
 	character Annabel
 	expression Anger
@@ -12,7 +12,7 @@ branch start
 	What do you mean I can't have every role in the school play? This is outrageous.
 	...
 	
-	background the park
+	background blue
 	
 	character Annabel
 	line I should be offended.
@@ -46,6 +46,7 @@ branch another section
 exitbranch another section 
 
 branch bad end
+	background yellow
 
 	character the evil character
 	expression evil
@@ -64,6 +65,7 @@ exitbranch bad end
 
 
 branch end
+	background green
 
 	character Narrator
 	expression neutral
