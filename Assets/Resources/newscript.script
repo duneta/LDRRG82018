@@ -1,0 +1,282 @@
+// lines that start with 2 '/' are comment ignored by parser
+//
+
+branch start
+
+	background Phone Lock Screen
+	
+	monolouge 
+	It’d been a long day. I’d finished up all my school work, went to my part time job, and now I was ready to 
+	kick back, relax, and watch some TV. School was rough, and it wasn’t often I found myself with time to 
+	spare. Just as I’d sat down to enjoy my evening, though, my phone alerted me to a text message. 
+	I’d expected it to be from my boss, asking me to cover an extra shift. Maybe a friend setting up a get
+	together this weekend. 
+	monologue
+	Opening the lock screen, though, I’d found myself staring at a name I hadn’t seen in a very long time.
+	Jane. A name that made me feel something that I’d thought I’d forgot. Something welled up inside me, 
+	and I found myself tapping the messaging app before I could stop myself.
+
+	// This is where we insert the out of storage space popup
+
+	I frowned. I didn’t think I had that many things on this phone, and yet, it seemed to always be filling up. 
+	Tapping the popup, 
+ 
+	background app storage screen
+ 
+	monolouge
+	it brought me to the app storage screen, and I saw the culprit of my low storage space.
+	My photo app.
+ 
+ 
+
+    character You
+	expression none
+	// Multi-line dialog
+	line
+	...I guess I’d better delete some of this stuff. I don’t really need it any more.
+	
+	
+	monolouge
+	Sighing, I opened the photo album.
+
+	background Photo Album
+
+	monolouge
+	A lot of these photos were years old, and honestly, I wasn’t quite sure why I was holding onto them for
+	as long as I was. Smiling, I tapped on the photo of Jane and I in the restaurant on our first date. 
+
+	background photo of Jane at restraunt
+
+	// This is where the photo of Jane and Player at the restaurant would go.
+
+	monolouge
+	I found myself staring at the photo. Jane had picked out a new dress just for the date, 
+	and I’d been so nervous when I’d seen her. Sighing, I closed my eyes, the memories coming back to me 
+	like a wave washing over me. 
+
+	background scene change to the past with Jane at restraunt. Jane looks uncomfortable.
+
+	monolouge
+    I was nervous. Butterflies swelled inside my stomach as I fidgeted with the napkin in front 
+    of me. An awkward silence had come between us after the waiter had asked us what we’d wanted 
+    to eat….I didn’t really know what we should talk about. It seemed lame to talk about school 
+    during a date, and I didn’t know if she was in to things like video games and sports. 
+    I glanced up at her, smiling nervously.
+    
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	So...This is a nice place. Have you come here before?
+		  
+	
+	character Jane
+	expression Happy
+	// Multi-line dialog
+	line
+	No, never! I've been wanting to try this place out for a while, but I've never had a good reason to
+	come here! So...Thanks for taking me!
+	
+	
+	monologue
+	I felt my face grow hot as she smiled, and I nodded, taking a sip of water.
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line 
+	Yeah, no problem. I'm glad you like it.
+	
+	
+	character Jane
+	expression excited
+	// Multi-line dialog
+	line
+	So, we haven't been able to talk outside of school too much until recently. What kind
+	of stuff do you do when you're not doing homework?
+	
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line 
+	Oh. Uh. I play video games. And I like reading...
+	
+	
+	monologue
+	Jane was nodding, staring at me intently. I got the feeling that no matter what I told her, she'd
+	be interested. She always gave off the air of being genuinely interested in what other people were
+	saying, even if she didn't understand it.
+	
+	character Jane
+	expression Thinking
+	// Multi-line dialog
+	line
+	Oh really? That's neat! I like playing games too! What's your favourite?
+	
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	Oh. Uh, well, I've been really into Creature Tracker: Universe lately. It just came out but it's
+	really fun! You should give it a try.
+	
+	
+	character Jane
+	expression excited
+	// Multi-line dialog
+	line
+	Oh! That's the one where you fight creatures and you can make armour out of the stuff they drop, right?
+	My little brother has played the first one! They look really fun!
+	
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	I didn't know you had a brother. What's he like?
+	
+	
+	character Jane
+	expression Thinking
+	// Multi-line dialog
+	line
+	Well, he really likes games and sports...and he's really competitive. He hates losing, but he's
+	not a bad kid, you know? I love him to pieces. 
+	
+	
+	monologue
+	Jane looked lost in thought, but I could tell she was close with her brother. She spoke about him
+	in a warm way, and there was a spark in her eyes that told me she spent a lot of time with him.
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	He sounds like a great kid. Do you two do lots of stuff together?
+	
+	
+	character Jane
+	expression Happy
+	// Multi-line dialog
+	line
+	Yeah! We go hiking sometimes, and we play games together. He really likes sports so I go to all
+	his games and stuff. He's not really into sitting inside all the time, though, so sometimes I can't
+	keep up with him!
+    
+	
+	monologue
+	I felt more relaxed now that Jane and I were talking more freely. She was easy going, and I felt like
+	I could talk to her about anything, and she'd listen and have something interesting to say about
+	whatever it was. Once conversation started, it was hard to stop talking to her. Suddenly, her face
+	turned red, and she looked away from me, a sheepish smile on her face. 
+	
+	character Jane
+	expression Blushing
+	// Single-line dialog
+	line
+	You know, I was pretty shocked when you asked me out.
+	
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	Really? Why?
+	
+	
+	monologue
+	She took a minute to answer, and while she thought, she played with the hem of her napkin. 
+	
+	character Jane
+	expression Laughing
+	// Multi-line dialog
+	line
+	Well, I've kind of liked you for a while now. I tried to get to know you more last year, but it was
+	kind of hard to approach you. I guess I was nervous. I never expected you to ask me out on a date.
+	I thought you didn't know I existed.
+	
+	
+	monologue
+	I was surprised. I had no idea she'd liked me for so long. I shook my head.
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	I feel the same. You were always around other people, so talking to you was kind of hard. I 
+	sort of assumed you just thought I was some nerd who had a bunch of classes with you. 
+	When I asked you out, I thought you'd laugh and shut me down on the spot.
+	
+	character Jane
+	expression surprised
+	// Multi-line dialog
+	line
+	What??? I would never do that!
+	
+	
+	monologue
+	I couldn't help it. I laughed at her shocked face and shook my head. 
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	Yeah, I know that now. But when I asked you out, I didn't know what would happen! You can't blame
+	me for being scared. 
+	
+	
+	monologue
+	The waiter returned with the food we ordered, and once he'd left, we kept talking. I learned more 
+	about her brother, and about the classes she was taking. I learned about what she did after school
+	and about the clubs she was in. Before I knew it, we'd finished eating, and were enjoying dessert. 
+
+	character Jane
+	expression Happy
+	// Multi-line dialog
+	line
+	Hey, you know...I had a lot of fun tonight. I'm glad I decided to go out with you tonight. 
+	
+	
+	monologue
+	I felt my face grow hot, my cheeks red. 
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	Yeah! I'm uh, happy you agreed! We should....do this again sometime?
+	
+	
+	monologue
+	She laughed, nodding enthusiastically as she took a bite of her cheesecake. 
+	
+	character Jane
+	expression Laughing
+	// Single-line dialog
+	line
+	Is that your way of asking me out on another date?
+	
+	monologue
+	I blushed, smiling as I nodded.
+	
+	character You
+	expression none
+	// Multi-line dialog
+	line
+	Yeah! I mean....If you want to, I mean.
+	
+	
+	monologue
+	Jane reached across the table, resting her hand on top of mine, grinning.
+	
+	character Jane
+	expression Sly Grin
+	// Single-line dialog
+	line
+	I was hoping you'd say that.
+	
+// ...
+
+exitbranch start
