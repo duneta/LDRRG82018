@@ -1,0 +1,59 @@
+// lines that start with 2 '/' are comment ignored by parser
+//
+
+branch start
+
+	background Phone Lock Screen
+	
+	monolouge 
+	It’d been a long day. I’d finished up all my school work, went to my part time job, and now I was ready to 
+	kick back, relax, and watch some TV. School was rough, and it wasn’t often I found myself with time to 
+	spare. Just as I’d sat down to enjoy my evening, though, my phone alerted me to a text message. 
+	I’d expected it to be from my boss, asking me to cover an extra shift. Maybe a friend setting up a get
+	together this weekend. 
+
+	Opening the lock screen, though, I’d found myself staring at a name I hadn’t seen in a very long time.
+	Jane. A name that made me feel something that I’d thought I’d forgot. Something welled up inside me, 
+	and I found myself tapping the messaging app before I could stop myself.
+
+	// This is where we insert the out of storage space popup
+
+	I frowned. I didn’t think I had that many things on this phone, and yet, it seemed to always be filling up. 
+	Tapping the popup, 
+ 
+	background app storage screen
+ 
+	monolouge
+	it brought me to the app storage screen, and I saw the culprit of my low storage space.
+	My photo app.
+ 
+
+    character player
+	expression none
+	// Single-line dialog
+	line
+	...I guess I’d better delete some of this stuff. I don’t really need it any more.
+	
+	monolouge
+	Sighing, I opened the photo album.
+
+	background Photo Album
+
+	monolouge
+	A lot of these photos were years old, and honestly, I wasn’t quite sure why I was holding onto them for as 
+	long as I was. Smiling, I tapped on the photo of Jane and I in the restaurant on our first date. 
+
+	background photo of Jane at restraunt
+
+	// This is where the photo of Jane and Player at the restaurant would go.
+
+	monolouge
+	I found myself staring at the photo. Jane had picked out a new dress just for the date, 
+	and I’d been so nervous when I’d seen her. Sighing, I closed my eyes, the memories coming back to me 
+	like a wave washing over me. 
+
+	background scene change to the past with Jane at restraunt
+
+// ...
+
+exitbranch start

@@ -1,0 +1,56 @@
+// lines that start with 2 '/' are comment ignored by parser
+//
+
+branch start
+
+	background the school
+
+	character Annabel
+	expression Anger
+	// Multi-line dialog
+	line
+	What do you mean I can't have every role in the school play? This is outrageous.
+	...
+	
+	background the park
+	
+	character Annabel
+	line 
+	I should be offended.
+	line
+	you should be offended.
+	line
+	you should be offended at the way that you should be offended at the way you offended me.
+	hidecharacter Annabel
+	
+	directive phone notification
+
+	character Ben
+	expression Scared
+	// Single-line dialog
+	line Listen this is not my fault.
+
+	jump another section
+
+exitbranch start
+
+
+
+branch another section
+
+	options
+
+		option optiontitle A
+
+		option optiontitle B
+
+	endoptions
+
+exitbranch another section 
+
+
+branch end
+	character Narrator
+	expression neutral
+	line and so it was the end.
+exitbranch end
