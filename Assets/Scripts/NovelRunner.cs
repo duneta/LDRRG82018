@@ -23,6 +23,7 @@ public class NovelRunner : MonoBehaviour {
 	public GameObject normalDisplay;
 	public GameObject optionDisplay;
 	public GameObject optionContent;
+	public Image characterGraphic;
 
 	public List<NovelBranch> branches;
 	
@@ -94,14 +95,28 @@ public class NovelRunner : MonoBehaviour {
 			} break;
 			case Tokens.character:
 			{ 
+				NovelCharacter character = ((NovelCharacter) frame); 
+				if (character.name != "You")
+				{ 
+					characterGraphic.gameObject.SetActive(true);
+					characterGraphic.sprite = marshal.Character(character.name,null);
+					characterGraphic.rectTransform.sizeDelta = Scale(Screen.height, 1080, characterGraphic.sprite.rect.size);
+				}
 				title.text = ((NovelCharacter) frame).name;
-				state = RunnerStates.waitOnTimer;
 				message.text = string.Empty;
+				state = RunnerStates.waitOnTimer;
 			} break;
 			case Tokens.expression:
 			{ 
-				title.text = ((NovelExpression)frame).character + " " + ((NovelExpression)frame).payload;  
-				message.text = string.Empty;
+				NovelExpression expression = ((NovelExpression) frame); 
+				if (expression.character != "You")
+				{ 
+					characterGraphic.gameObject.SetActive(true);
+					characterGraphic.sprite = marshal.Character(expression.character,(string)expression.payload);
+					characterGraphic.rectTransform.sizeDelta = Scale(Screen.height, 1080, characterGraphic.sprite.rect.size);
+				}
+
+				title.text = ((NovelExpression)frame).character;
 				state = RunnerStates.waitOnTimer;
 			} break;
 			case Tokens.line:
@@ -197,6 +212,10 @@ public class NovelRunner : MonoBehaviour {
 		}
 	}
 
+	Vector2 Scale(float actual, float standard, Vector2 patient)
+	{
+		return patient * (actual/standard);
+	}
 	void Jump(string title)
 	{
 		startingBranch = title;

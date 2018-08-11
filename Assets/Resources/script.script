@@ -5,8 +5,8 @@ branch start
 
 	background red
 
-	character Annabel
-	expression Anger
+	character green
+	expression mad
 	// Multi-line dialog
 	line
 	What do you mean I can't have every role in the school play? This is outrageous.
@@ -14,16 +14,18 @@ branch start
 	
 	background blue
 	
-	character Annabel
+	character green
 	line I should be offended.
+	expression sad
 	line you should be offended.
+	expression happy
 	line you should be offended at the way that you should be offended at the way you offended me.
 	hidecharacter Annabel
 	
 	directive phone notification
 
-	character Ben
-	expression Scared
+	character red
+	expression happy
 	// Single-line dialog
 	line Listen this is not my fault.
 
@@ -48,13 +50,12 @@ exitbranch another section
 branch bad end
 	background yellow
 
-	character the evil character
-	expression evil
+	character blue
+	expression happy
 	line ha, what ever will you do now?
 	line there's nothing you can do!
 	
-	character the player
-	expression heroic
+	character You
 	line NOOOOOOOOOOOOOOOO
 	line whelp I guess I lose.
 	

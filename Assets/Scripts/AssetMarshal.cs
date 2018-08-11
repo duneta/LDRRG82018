@@ -8,6 +8,10 @@ public class AssetMarshal : MonoBehaviour {
 	public Sprite[] backSprites;
 	public string[] backNames;
 
+	[Header("Character")]
+	public Sprite[] charSprites;
+	public string[] charNames;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -30,5 +34,21 @@ public class AssetMarshal : MonoBehaviour {
 		}
 		throw new System.Exception("AssetMarshal recieved a request for background:"
 			+name+" but asset could not be found.");
+	}
+
+	public Sprite Character(string name, string emote)
+	{
+		emote = emote ?? "happy";
+		string descriptor = name + "|" + emote;
+		for (int i = 0; i < charNames.Length; i++)
+		{
+			string candidate = charNames[i];
+			if (candidate == descriptor)
+			{
+				return charSprites[i];
+			}
+		}
+		throw new System.Exception("AssetMarshal recieved a request for character:"
+			+descriptor+" but asset could not be found.");
 	}
 }
