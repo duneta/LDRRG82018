@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class AssetMarshal : MonoBehaviour {
 
@@ -54,7 +55,9 @@ public class AssetMarshal : MonoBehaviour {
 	}
 
 	private void End()
-	{}
+	{
+		SceneManager.LoadScene("Credits");
+	}
 	
 	// Update is called once per frame
 	void Update () {
