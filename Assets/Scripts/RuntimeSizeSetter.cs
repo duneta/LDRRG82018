@@ -14,7 +14,7 @@ public class RuntimeSizeSetter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(rect.sizeDelta);
+		//Debug.Log(rect.sizeDelta);
 		
 	}
 }

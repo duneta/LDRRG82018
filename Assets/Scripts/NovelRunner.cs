@@ -17,6 +17,9 @@ public class NovelRunner : MonoBehaviour {
 	
 	public AssetMarshal marshal;
 
+	public UnityAction callBack;
+
+	public GameObject novelAssembly;
 	public Text title;
 	public Text message;
 	public Image background;
@@ -24,6 +27,7 @@ public class NovelRunner : MonoBehaviour {
 	public GameObject optionDisplay;
 	public GameObject optionContent;
 	public Image characterGraphic;
+
 
 	public List<NovelBranch> branches;
 	
@@ -36,10 +40,11 @@ public class NovelRunner : MonoBehaviour {
 
 	private GameObject providedButton;
 
-	void Start()
+	public Phone phone;
+
+	void Awake()
 	{
 		Scrollbar bar = GetComponent<Scrollbar>();
-		
 
 		providedButton = (GameObject) Resources.Load("Button");
 		if (providedButton == null)
@@ -48,8 +53,8 @@ public class NovelRunner : MonoBehaviour {
 		ParseScript parser = new ParseScript();
 		branches = parser.LoadScript();
 		lastToken = Tokens.none;
-		Init();
-		BeginStory();
+		//Init();
+		//BeginStory();
 	}
 
 	public void BeginStory()
@@ -65,15 +70,26 @@ public class NovelRunner : MonoBehaviour {
 		BeginStory();
 	}
 
+	public void BeginStory(string title, UnityAction callBack)
+	{
+		this.callBack = callBack;
+		BeginStory(title);
+	}
+
 	void Advance(bool doNotIncrement = false)
 	{
+
+
+		Debug.Log("advance:"+doNotIncrement);
 		lastToken = currentBranch.frames[currentFrame].token;
-		if (!doNotIncrement)
+  		if (!doNotIncrement)
 		{ currentFrame++; }
 
 		if (currentFrame >= currentBranch.frames.Count)
 		{
 			running = false;
+			characterGraphic.gameObject.SetActive(false);
+			if (callBack != null) {callBack.Invoke();}
 			return;
 		}
 
@@ -96,7 +112,7 @@ public class NovelRunner : MonoBehaviour {
 			case Tokens.character:
 			{ 
 				NovelCharacter character = ((NovelCharacter) frame); 
-				if (character.name != "You")
+				if (character.name != "You" && character.name != "player")
 				{ 
 					characterGraphic.gameObject.SetActive(true);
 					characterGraphic.sprite = marshal.Character(character.name,null);
@@ -109,7 +125,7 @@ public class NovelRunner : MonoBehaviour {
 			case Tokens.expression:
 			{ 
 				NovelExpression expression = ((NovelExpression) frame); 
-				if (expression.character != "You")
+				if (expression.character != "You" && expression.character != "player")
 				{ 
 					characterGraphic.gameObject.SetActive(true);
 					characterGraphic.sprite = marshal.Character(expression.character,(string)expression.payload);
@@ -132,12 +148,12 @@ public class NovelRunner : MonoBehaviour {
 			{
 				title.text = "HIDE CHARACTER";
 				message.text = (string) frame.payload;
-				StartTimer();
+				StartTimer(); 
 			} break;
 			case Tokens.directive:
 			{
-				title.text = "DIRECTIVE";
-				message.text = (string) frame.payload;
+				marshal.ExecuteProcedure((string) frame.payload);
+				state = RunnerStates.waitOnTimer;
 				StartTimer();
 			} break;
 			case Tokens.jump:
@@ -145,8 +161,16 @@ public class NovelRunner : MonoBehaviour {
 				StartTimer();
 				Jump((string)frame.payload);
 			} break;
+			case Tokens.TEXT:
+			{
+				NovelText text = (NovelText)frame;
+				state = RunnerStates.waitOnInput;
+				phone.PostTextMessage(text.character == "You", text.character, text.line);
+				
+			}break;
 			case Tokens.options:
 			{
+				novelAssembly.SetActive(true);
 				state = RunnerStates.waitOnChoice;
 				NovelOptions options = (NovelOptions) frame;
 				
@@ -157,7 +181,12 @@ public class NovelRunner : MonoBehaviour {
 				Debug.Log(old.Length);
 
 				foreach (Transform go in old)
-				{ GameObject.Destroy(go); }
+				{ 
+					if (go == optionContent.transform)
+					{continue;}
+					go.transform.parent = null;
+					GameObject.Destroy(go.gameObject); 
+				}
 
 				foreach (NovelOption option in options.options)
 				{
@@ -165,7 +194,7 @@ public class NovelRunner : MonoBehaviour {
 						optionContent.transform.rotation, optionContent.transform);
 					g.GetComponentInChildren<Text>().text = (string)option.payload;
 					g.GetComponent<Button>().onClick.AddListener( 
-						() => { EndOptions(); Jump(option.target); } /// CLOSURE! to the rescue!!
+						() => { Jump(option.target); EndOptions();  } /// CLOSURE! to the rescue!!
 					);
 				}
 			} break;
@@ -181,6 +210,7 @@ public class NovelRunner : MonoBehaviour {
 		state = RunnerStates.idle;
 		normalDisplay.SetActive(true);
 		optionDisplay.SetActive(false);
+		novelAssembly.SetActive(false);
 	}
 
 	void StartTimer()

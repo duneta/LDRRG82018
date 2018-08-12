@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AssetMarshal : MonoBehaviour {
 
@@ -12,14 +13,67 @@ public class AssetMarshal : MonoBehaviour {
 	public Sprite[] charSprites;
 	public string[] charNames;
 
+	[SerializeField]
+	private List<string> unfoundItems;
+
+	private UnityAction[] procedures;
+	private string[] procedureNames;
+
+	public NovelRunner runner;
+	public GameObject novelDisplay;
+
+	private int goodpoints;
+	private int badpoints;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		unfoundItems = new List<string>();
+		procedures = new UnityAction[] {
+			() => {goodpoints += 1;},
+			() => {badpoints += 1;},
+			() => {
+				runner.gameObject.SetActive(true);
+				novelDisplay.gameObject.SetActive(true);
+
+				if (goodpoints > badpoints)
+				{
+					runner.BeginStory("good ending", (End));
+				}
+				else
+				{
+					runner.BeginStory("bad ending", (End));
+				} 
+
+			}
+		};
+		procedureNames = new string[]{
+			"GOODPOINT",
+			"BADPOINT",
+			"finalDispatch"
+		};
 	}
+
+	private void End()
+	{}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void ExecuteProcedure(string name)
+	{
+		for (int i = 0; i < procedureNames.Length; i++)
+		{
+			string candidate = procedureNames[i];
+			if (candidate == name)
+			{
+				procedures[i].Invoke();
+				return;
+			}
+		}
+		if (!unfoundItems.Contains(name))
+		{ unfoundItems.Add(name);}
 	}
 
 	public Sprite Background(string name)
@@ -32,13 +86,14 @@ public class AssetMarshal : MonoBehaviour {
 				return backSprites[i];
 			}
 		}
-		throw new System.Exception("AssetMarshal recieved a request for background:"
-			+name+" but asset could not be found.");
+		if (!unfoundItems.Contains(name))
+		{ unfoundItems.Add(name);}
+		return null;
 	}
 
 	public Sprite Character(string name, string emote)
 	{
-		emote = emote ?? "happy";
+		emote = emote ?? "Happy";
 		string descriptor = name + "|" + emote;
 		for (int i = 0; i < charNames.Length; i++)
 		{
@@ -48,7 +103,10 @@ public class AssetMarshal : MonoBehaviour {
 				return charSprites[i];
 			}
 		}
-		throw new System.Exception("AssetMarshal recieved a request for character:"
-			+descriptor+" but asset could not be found.");
+		if (!unfoundItems.Contains(descriptor))
+		{ unfoundItems.Add(descriptor);}
+   		//throw new System.Exception("AssetMarshal recieved a request for character:"
+		//	+descriptor+" but asset could not be found.");
+		return null;
 	}
 }

@@ -45,6 +45,32 @@ public class NovelOption : NovelFrame
 	}
 }
 
+public class NovelText: NovelFrame
+{
+	public override string ToString()
+	{
+		return token.ToString()+":"+character+":"+line;
+	}
+	public string character;
+	public string line;
+	public NovelText(ref List<FrameFragment> fragments)
+	{
+		token = Tokens.TEXT;
+		fragments.Remove(fragments[0]);
+
+		NovelCharacter novelCharacter = new NovelCharacter(ref fragments);
+
+		string line = string.Empty;
+		foreach (NovelFrame frame in novelCharacter.ownedFrames)
+		{
+			line += frame.payload;
+		}
+
+		this.character = novelCharacter.name;
+		this.line = line;
+	}
+}
+
 public class NovelJump : NovelFrame
 {
 	public NovelJump(ref List<FrameFragment> fragments)
@@ -296,7 +322,7 @@ public class NovelCharacter : NovelFrame
 
 
 public enum Tokens { none, monologue, background, branch, character, hidecharacter, 
-		expression, line, jump, exitbranch, directive, 
+		expression, line, jump, exitbranch, directive, TEXT,
 		options, option, optionexit, endoptions}
 
 public class NovelScript
@@ -322,7 +348,7 @@ public class ParseScript {
 	// Use this for initialization
 	public List<NovelBranch> LoadScript () {
 		//StreamReader reader = new StreamReader("Assets/Resources/LDSCRIPTRRG.script");
-		StreamReader reader = new StreamReader("Assets/Resources/script.script");
+		StreamReader reader = new StreamReader("Assets/Resources/FinalScript2.script");
 
 		List<FrameFragment> lines = new List<FrameFragment>();
 		
@@ -469,12 +495,15 @@ public class ParseScript {
 			{ 
 				return new NovelJump(ref fragments); 
 			}
+			case Tokens.TEXT:
+			{
+				return new NovelText(ref fragments);
+			}
 			
  			default: 
-			 {
-				Debug.Log("Bad token:"+fragments[0].token.ToString());
-			 	throw new System.IndexOutOfRangeException();
-			 }
+			{
+				throw new System.IndexOutOfRangeException("Bad token:"+fragments[0].token.ToString());
+			}
 		}
 	}
 
