@@ -8,7 +8,7 @@ public class RuntimeSizeSetter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rect = GetComponent<RectTransform>();
-		Debug.Log(Screen.width +","+Screen.height);
+		//Debug.Log(Screen.width +","+Screen.height);
 		rect.sizeDelta = new Vector2(rect.sizeDelta.x-32, rect.sizeDelta.y-32);
 	}
 	

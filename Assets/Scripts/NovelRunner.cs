@@ -80,7 +80,7 @@ public class NovelRunner : MonoBehaviour {
 	{
 
 
-		Debug.Log("advance:"+doNotIncrement);
+		//Debug.Log("advance:"+doNotIncrement);
 		lastToken = currentBranch.frames[currentFrame].token;
   		if (!doNotIncrement)
 		{ currentFrame++; }

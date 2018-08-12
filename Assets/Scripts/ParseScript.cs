@@ -377,7 +377,7 @@ public class ParseScript {
 			{
 				log += frame + "\n";
 			}
-			Debug.Log(log);
+			//Debug.Log(log);
 			branches.Add(branch);
 		}
 		return branches;
