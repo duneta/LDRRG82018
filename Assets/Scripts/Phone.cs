@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Phone : MonoBehaviour {
 
@@ -106,7 +107,6 @@ public class Phone : MonoBehaviour {
 		message.SetContent(line);
 		message.SetReceieve(blue);
 
-		Update();
-		
+		LayoutRebuilder.ForceRebuildLayoutImmediate(textOwner.GetComponent<RectTransform>());
 	}
 }

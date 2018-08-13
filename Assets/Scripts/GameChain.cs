@@ -32,6 +32,7 @@ public class GameChain : MonoBehaviour {
 	}
 	 public void StartUnlock()
 	 {
+		 phone.ShowApps();
 		runner.gameObject.SetActive(true);
 		runner.BeginStory("unlock", EndUnlock);
 	 }

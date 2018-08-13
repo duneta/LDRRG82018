@@ -22,7 +22,7 @@ exitbranch prolog
 
 branch unlock
 
-	
+	jump texting
     
 	monologue
 	When I opened the lock screen, I found myself staring at a name I hadn’t seen in a very long time.
