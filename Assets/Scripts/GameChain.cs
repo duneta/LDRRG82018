@@ -19,6 +19,13 @@ public class GameChain : MonoBehaviour {
 	public Vector3 phoneCenterScreen;
 	public Vector3 phoneOffScreenPosition;
 
+	 int guardCounter = 0;
+	 public bool GuardClause(int level)
+	 {
+		if (guardCounter > level) {return true;}
+		guardCounter = level + 1;
+		return false;
+	 }
 	// Use this for initialization
 	void Start () {
 		runner.BeginStory("prolog", EndProlog);
@@ -36,11 +43,9 @@ public class GameChain : MonoBehaviour {
 		NovelDisplay.gameObject.SetActive(false);
 	}
 
-	 bool guard1 = false;
 	 public void StartAlbum1()
 	 {
-		 if (guard1) {return;}
-		 guard1 = true;
+		if (GuardClause(0)){return;}
 		runner.gameObject.SetActive(false);
 		NovelDisplay.gameObject.SetActive(false);
 		phone.ShowAlbum();
@@ -49,6 +54,8 @@ public class GameChain : MonoBehaviour {
 
 	 public void StartAlbum1Commentary()
 	 {
+		if (GuardClause(1)){return;}
+		 Debug.Log("I need some fine wine, and you, you need to be nicer.");
 		phone.SlideTo(DoNothing, phoneOnScreenPosition);
 		phone.SetLock(true);
 		runner.gameObject.SetActive(true);
@@ -56,8 +63,10 @@ public class GameChain : MonoBehaviour {
 		runner.BeginStory("photoalbumstart", EndAlbum1Comment);
 	 }
 
+
 	 public void EndAlbum1Comment()
 	 {
+		if (GuardClause(2)){return;}
 		 phone.SlideTo(()=>{
 			 runner.BeginStory("janeatrestaurant",EndRestaurant);
 		 }, phoneOffScreenPosition);
@@ -65,6 +74,7 @@ public class GameChain : MonoBehaviour {
 
 	 public void EndRestaurant()
 	 {
+		if (GuardClause(3)){return;}
 		 runner.BeginStory("restaurantphoto2", 
 		 ()=>{
 			 phone.SlideTo(StartAlbum2, phoneOnScreenPosition);
@@ -73,6 +83,7 @@ public class GameChain : MonoBehaviour {
 
 	 public void StartAlbum2()
 	 {
+		if (GuardClause(4)){return;}
 		runner.gameObject.SetActive(false);
 		NovelDisplay.gameObject.SetActive(false);
 		phone.SetLock(false);
@@ -84,6 +95,7 @@ public class GameChain : MonoBehaviour {
 
 	 public void StartAlbum2Commentary()
 	 {
+		if (GuardClause(5)){return;}
 		phone.SetLock(true);
 		runner.gameObject.SetActive(true);
 		NovelDisplay.gameObject.SetActive(true);
@@ -92,18 +104,18 @@ public class GameChain : MonoBehaviour {
 
 	 public void StartCamping()
 	 {
-
+		if (GuardClause(6)){return;}
 		 phone.SlideTo(()=>{
 			 runner.BeginStory("janecampflashback",
 			 ()=>
 			 {phone.SlideTo(Album3, phoneOnScreenPosition);}
 			 );
 		 }, phoneOffScreenPosition);
-
 	 }
 	
 	public void Album3()
 	{
+		if (GuardClause(7)){return;}
 		runner.gameObject.SetActive(false);
 		NovelDisplay.gameObject.SetActive(false);
 		phone.SetLock(false);
@@ -115,6 +127,7 @@ public class GameChain : MonoBehaviour {
 
 	public void StartAlbum3Commentary()
 	{
+		if (GuardClause(8)){return;}
 		phone.SetLock(true);
 		runner.gameObject.SetActive(true);
 		NovelDisplay.gameObject.SetActive(true);
@@ -123,6 +136,7 @@ public class GameChain : MonoBehaviour {
 
 	public void CollegeFlash()
 	{
+		if (GuardClause(9)){return;}
 		 phone.SlideTo(()=>{
 			 runner.BeginStory("collegeAcceptance",
 			 ()=>{phone.SlideTo(Gobacktoapps, phoneOnScreenPosition); });
@@ -132,6 +146,7 @@ public class GameChain : MonoBehaviour {
 
 	public void Gobacktoapps()
 	{
+		if (GuardClause(10)){return;}
 		//runner.gameObject.SetActive(false);
 		NovelDisplay.gameObject.SetActive(false);
 		phone.SetLock(true);
@@ -141,16 +156,9 @@ public class GameChain : MonoBehaviour {
 
 	public void End()
 	{
+		if (GuardClause(11)){return;}
 		Debug.Log("The eNd");
 	}
-
-
-
-
-
-
-
-
 	public void DoNothing()
 	{}
 }

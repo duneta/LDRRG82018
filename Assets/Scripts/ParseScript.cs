@@ -79,7 +79,6 @@ public class NovelJump : NovelFrame
 		payload = fragments[0].payload;
 		fragments.Remove(fragments[0]);
 	}
-
 }
 
 public class NovelHideCharacter : NovelFrame
@@ -348,11 +347,11 @@ public class ParseScript {
 	// Use this for initialization
 	public List<NovelBranch> LoadScript () {
 		//StreamReader reader = new StreamReader("Assets/Resources/LDSCRIPTRRG.script");
-		StreamReader reader = new StreamReader("Assets/Resources/FinalScript2.script");
+		StringReader reader = new StringReader(TheDAta.rawDAta);
 
 		List<FrameFragment> lines = new List<FrameFragment>();
 		
-		while (!reader.EndOfStream)
+		while (reader.Peek() != -1)
 		{
 			string outLine = string.Empty;
 			string line = reader.ReadLine();

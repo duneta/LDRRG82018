@@ -1,0 +1,1118 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TheDAta  {
+	public static readonly string rawDAta = 
+	@"// lines that start with 2 '/' are comment ignored by parser
+	//
+
+	branch prolog
+		
+		monolouge 
+		It’d been a long day. I finished up all my school work, went to my part time job, and now I was ready to 
+		kick back, relax, and watch some TV. 
+		
+		monologue
+		School was rough, and it wasn’t often that I found myself with spare time. 
+		Just as I sat down to enjoy my evening, my phone alerted me to a text message. 
+		
+		monologue
+		I expected it to be from my boss who may want me to cover an extra shift or maybe a friend setting up a get
+		together this weekend. 
+		
+	exitbranch prolog
+
+	branch photoalbumstart
+
+		monolouge
+		A lot of these photos were years old, and honestly, I wasn’t quite sure why I was holding onto them for
+		as long as I was. Smiling, I tapped on the photo of Jane and I in the restaurant on our first date. 
+		
+		monolouge
+		But I found myself staring at the photo. Jane had picked out a new dress just for the date, 
+		and I was so nervous when I saw her.     
+		
+		monologue
+		Sighing, I closed my eyes, the memories came back
+		like a wave washing over me. 
+		
+	exitbranch photoalbumstart
+
+	branch janeatrestaurant
+
+		
+
+		background restaurant
+		
+		character Jane 
+		expression Dinner uncomfortable
+
+		monologue
+		Butterflies swelled inside my stomach as I fidgeted with the napkin in front 
+		of me. An awkward silence had come between us after the waiter had asked us what we wanted 
+		to eat.
+		
+		monologue
+		I didn’t really know what we could talk about. It seemed lame to talk about school 
+		during a date, and I didn’t know if she was into things like video games and sports. 
+		I glanced up at her, smiling nervously.
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		So...This is a nice place. Have you come here before?
+		endline	  
+		
+		character Jane 
+		expression Dinner Happy
+		// Multi-line dialog
+		line
+		No, never! I've been wanting to try this place out for a while, but I never had a good reason to
+		come here! So...thanks for taking me!
+		endline
+		
+		monologue
+		I felt my face grow hot as she smiled and I nodded while taking a sip of water.
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line 
+		Yeah, no problem. I'm glad you like it.
+		endline
+		
+		character Jane 
+		expression Dinner excited
+		// Multi-line dialog
+		line
+		So, we haven't been able to talk outside of school very much until now. What kind
+		of stuff do you do when you're not doing homework?
+		endline
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line 
+		Oh. Uh. I play video games. And I like reading...
+		endline
+		
+		monologue
+		Jane was nodding while staring at me intently. I got the feeling that no matter what I told her, she'd
+		be interested. 
+		
+		monologue
+		She always seemed genuinely invested in what other people were saying even if she didn't understand it.
+		
+		character Jane 
+		expression Dinner Thinking
+		// Multi-line dialog
+		line
+		Oh really? That's neat! I like playing games too! What's your favourite?
+		endline
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		Oh. Uh, well, I've been really into Creature Apprehender: Universe lately. It just came out, but it's
+		really fun! You should give it a try.
+		endline
+		
+		character Jane 
+		expression Dinner excited
+		// Multi-line dialog
+		line
+		Oh! That's the one where you fight creatures and you can make armor out of the stuff they drop, right?
+		My little brother has played the first one! They look really fun!
+		endline
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		I didn't know you had a brother. What's he like?
+		endline
+		
+		character Jane 
+		expression Dinner Thinking
+		// Multi-line dialog
+		line
+		Well, he really likes games and sports...and he's really competitive. He hates losing, but he's
+		not a bad kid, you know? I love him to pieces. 
+		endline
+		
+		monologue
+		Jane looked lost in thought, but I could tell she was close with her brother. She spoke about him
+		in a warm way and there was a spark in her eyes that told me she spent a lot of time with him.
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		He sounds like a great kid. Do you two do lots of stuff together?
+		endline
+		
+		character Jane 
+		expression Dinner Happy
+		// Multi-line dialog
+		line
+		Yeah! We go hiking sometimes, and we play games together. He really likes sports so I go to all
+		his games and stuff. He's not really into sitting inside all the time, though, sometimes I can't
+		keep up with him!
+		endline
+		
+		monologue
+		I felt more relaxed now that Jane and I were talking freely. I felt like
+		I could talk to her about anything and she'd listen. Once the conversation started, it was hard to stop talking to her. 
+		Suddenly, her face turned red, and she looked away from me, a sheepish smile on her face. 
+		
+		character Jane 
+		expression Dinner Blushing
+		// Single-line dialog
+		line
+		You know, I was pretty shocked when you asked me out.
+		endline
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		Really? Why?
+		endline
+		
+		monologue
+		She took a minute to answer and played with the hem of her napkin while she thought. 
+		
+		character Jane 
+		expression Dinner Laughing
+		// Multi-line dialog
+		line
+		Well, I've kind of liked you for a while now. I tried to get to know you more last year, but it was hard to approach you. I guess I was nervous. I never expected you to ask me out on a date.
+		I thought you didn't know I existed.
+		endline
+		
+		monologue
+		I was surprised. I had no idea she'd liked me for so long. I shook my head.
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		I feel the same. You were always around other people, so talking to you was difficult. I just
+		assumed you thought I was some nerd who had a bunch of classes with you. 
+		When I asked you out, I thought you'd laugh and shut me down on the spot.
+		
+		character Jane 
+		expression Dinner surprised
+		// Multi-line dialog
+		line
+		What??? I would never do that!
+		endline
+		
+		monologue
+		I couldn't help it. I laughed at her shocked face and shook my head. 
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		Yeah, I know that now. But when I asked you out, I didn't know what would happen! You can't blame
+		me for being scared. 
+		endline
+		
+		monologue
+		The waiter returned with the food we ordered, and once he'd left, we kept talking. I learned more 
+		about her brother and about the classes she was taking.
+
+		monologue
+		I learned about what she did after school and about the clubs she was in. Before I knew it, we'd finished eating and were enjoying 
+		dessert. 
+
+		character Jane 
+		expression Dinner Happy
+		// Multi-line dialog
+		line
+		Hey, you know...I had a lot of fun tonight. I'm glad I decided to go out with you. 
+		endline
+		
+		monologue
+		My face grew hot and my cheeks turned red. 
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		Yeah! I'm uh, happy you agreed! We should....do this again sometime?
+		endline
+		
+		monologue
+		She laughed, nodding enthusiastically as she took a bite of her cheesecake. 
+		
+		character Jane
+		expression Dinner Laughing
+		// Single-line dialog
+		line
+		Is that your way of asking me out on another date?
+		
+		monologue
+		I blushed, smiling as I nodded.
+		
+		character You
+		expression none
+		// Multi-line dialog
+		line
+		Yeah! I mean....If you want to.
+		endline
+		
+		monologue
+		Jane reached across the table, resting her hand on top of mine, grinning.
+		
+		character Jane 
+		expression Dinner Sly Grin
+		// Single-line dialog
+		line
+		I was hoping you'd say that.
+		
+		hidecharacter
+		
+		background black
+		
+		
+	exitbranch janeatrestaurant
+
+	branch restaurantphoto2
+
+		
+		
+		
+		monologue
+		I shook my head, snapping myself out of my daydream. Sighing, I stared at the photo for a moment
+		longer before tapping the delete all button.
+		
+		
+		
+	exitbranch restaurantphoto2
+
+	branch janeCamping
+		
+		
+
+		monologue
+		I found myself smiling as I tapped on the picture of Jane. 
+		
+		monologue
+		She looked so happy. I remember she'd been so excited about taking a break from the stress of
+		exams to go camping for a weekend. 
+		
+		monologue
+		It had taken a while to convince her parents that it was okay
+		for us to spend time alone together, but Jane always had a way of getting what she wanted. 
+		
+		monologue
+		I hesitated, my finger hovering over the delete icon. I remembered this day vividly. Closing my eyes
+		I smiled, picturing the look on Jane's face. 
+		
+		
+
+	exitbranch janeCamping
+
+	branch janecampflashback
+		
+		
+		
+		background jane camping in the past 
+		
+		// This is where the flashback happens. 
+		
+		monologue
+		It was chilly for this time of the year. I found myself huddled up under a blanket, the moon casting
+		a glow around us. 
+		
+		monologue
+		Exam time was stressful for everyone, and the feeling of it finally being over made
+		me feel like a weight had been lifted from my shoulders. 
+		
+		monologue
+		I felt my shoulders relax as I glanced at Jane. She was smiling softly, a peaceful look on her face as her eyes locked on the
+		bright moon overhead. 
+		
+		monologue
+		I felt myself grin, and I leaned over to nudge her shoulder with mine. 
+		
+		monologue
+		She jumped, looking towards me, surprised.
+		
+		character Jane 
+		expression Camping surprised
+		// Multi-line dialog
+		line
+		Geez! You scared me! Don't do that!
+		endline
+		
+		monologue
+		I laughed, offering an apologetic smile.
+		
+		character You
+		// Multi-line dialog
+		line
+		Sorry sorry. You just looked like you were off in space. I had to bring you back to earth. Can't have
+		you drifting off on me now can I?
+		
+		monologue
+		Jane laughed, rolling her eyes, bumping my shoulder back. 
+		
+		character Jane 
+		expression Camping Sly Grin
+		// Multi-line dialog
+		line
+		Yeah yeah. Whatever you say, dork.
+		
+		monologue
+		We both laughed, falling into a comfortable silence. Jane leaned against me, her shoulder pressing
+		against mine, and I wrapped an arm around her, holding her close. 
+		
+		character You
+		// Single-line dialog
+		line
+		So...How do you think you did on the exams?
+		
+		character Jane 
+		expression Camping Confused
+		// Multi-line dialog
+		line
+		Why did you have to menton exams?? We were having such a nice night!
+		
+		monologue
+		I laughed, raising a hand in self defense.
+		
+		character You
+		// Multi-line dialog
+		line
+		Sorry sorry! I was just curious, that's all. We just finished them this afternoon, and then we
+		had to get ready to come here so...I haven't had the time to ask you.
+		
+		character Jane 
+		expression Camping Pouting 
+		// Multi-line dialog
+		line
+		Yeah yeah. Well, I did fine. I studied. Unlike someone I know...
+		
+		character You
+		// Multi-line dialog
+		line
+		Hey! I studied! And I did just fine, thank you very much!
+		
+		monologue
+		I poked her side and she laughed, shaking her head.
+		
+		character Jane 
+		expression Camping Laughing
+		// Multi-line dialog
+		line
+		Hey hey! No poking!! Stop that! 
+		
+		character You
+		// Multi-line dialog
+		line
+		Okay, sorry. Anyway, I think I did pretty good all things considered. You know I don't
+		usually study too much, but the only thing I had trouble with was math. 
+		
+		character Jane 
+		expression Camping Happy
+		// Multi-line dialog
+		line
+		Yeah you've never been great at math, huh? Did the tutoring you did help at all?
+		
+		character You
+		// Multi-line dialog
+		line
+		Yeah, it helped. I think I'll do fine. Don't think I'll have a problem getting into college.
+		
+		monologue
+		At the mention of College, Jane tilts her head, looking towards me. She looks inquisitive, like
+		she has a lot on her mind and a lot to say.
+		
+		character Jane 
+		expression Camping thoughtful 
+		// Multi-line dialog
+		line
+		Oh yeah! Which college did you apply to? I don't think I've ever heard you talk about it!
+		
+		character You
+		// Multi-line dialog
+		line
+		Dixonville College. It's local. My folks went there, and they want me to stay close to home.
+		
+		monologue
+		Jane nods, turning to look towards the sky. She's smiling softly.
+		
+		character Jane 
+		expression Camping Happy
+		// Multi-line dialog
+		line
+		That makes sense. Your parents do seem like the type to want you to stick around home.
+		
+		monologue
+		I make a face. It wasn't really up to me. My parents agreed to pay for my college tuition as long
+		as I went to a school of their choosing. 
+		
+		monologue
+		Going to whatever school they wanted me to was better than having student loans to pay off for the rest of my life.
+		
+		character You
+		// Multi-line dialog
+		line
+		Yeah yeah. Well, it wasn't really up to me. What about you? Knowing you, you're off to some 
+		fancy law school or something.
+		
+		monologue
+		Jane made a face, shaking her head. 
+		
+		character Jane 
+		expression Camping Pouting
+		// Multi-line dialog
+		line
+		Law school?? Do I really seem like someone that would go to law school??
+		
+		monologue
+		I laughed, shrugging. Truthfully, Jane was smart. She could go to any school anywhere she wanted.
+		
+		character Jane 
+		expression Camping Happy
+		// Multi-line dialog
+		line
+		No, not law school. I applied to Oak Hills University. It's a couple of states over. Have you heard 
+		of it?
+		
+		monologue
+		I felt my stomach drop. A couple of states over? If that was the case we'd never see each other. 
+		I couldn't drive, and Jane biked most places. 
+		
+		monologue
+		Even once I could, gas cost money, which would mean I would need a job. Would we even have time for each other?
+		
+		monologue
+		Jane must have noticed the look on my face. She tilted her head, eyes inquisitive.
+		
+		character Jane 
+		expression Camping Confused
+		// Single-line dialog
+		line
+		Is everything okay?
+		
+		monologue
+		I shook my head, offering her a small smile to ease her mind.
+		
+		character You
+		// Multi-line dialog
+		line
+		Yeah! Sorry. I was just thinking...You're going to be moving pretty far away, right?
+		
+		character Jane 
+		expression Camping surprised
+		// Multi-line dialog
+		line
+		Yeah! I guess so. Is their something wrong with that?
+		
+		monologue
+		I paused for a moment, thinking. 
+		
+		character You
+		// Multi-line dialog
+		line
+		No, nothing's wrong...I just...I wonder how we're going to make us work, you know? Since we'll be
+		so far from each other.
+		
+		monologue
+		Jane frowned. She did not look happy with me. I felt her pull away from my shoulder, and she sighed,
+		looking away.
+		
+		character Jane 
+		expression Camping Sad
+		// Multi-line dialog
+		line
+		You think we're not going to work out? Just because we can't see each other every day?
+		
+		character You
+		// Multi-line dialog
+		line
+		No no! I didn't mean it like that! Geez, Jane. You know that's not what I meant!
+		
+		monologue
+		I sighed, bringing a hand up to my face. I really should start thinking more before I start saying
+		things. It got me in trouble.
+		
+		monologue
+		I felt Jane rest her hand on mine, and I looked back towards her. 
+		
+		character Jane 
+		expression Camping thoughtful
+		// Multi-line dialog
+		line
+		Well listen. I don't want to give up. I really care about you, you know? I don't want something 
+		like distance to come between us! People have delt with more than that before!
+		
+		character Jane 
+		expression Camping Smiling
+		// Multi-line dialog
+		line
+		No matter how far away we are, you'll always be the most important person in my life. I love you, 
+		remember? That's why we're dating. I'm sure we'll figure it out!
+		
+		monologue
+		I sighed, looking towards the sky. I couldn't help but feel worried. High school romance didn't
+		usually last after school was over. How often did couples stay together once college started? 
+		
+		monologue
+		Jane must have sensed something was off with me. I felt her squeeze my hand, and she smiled, 
+		cocking an eyebrow.
+		
+		character Jane 
+		expression Camping Sly Grin
+		// Multi-line dialog
+		line
+		Hey! Are you doubting me? Have I ever been wrong about anything before? I know we'll be fine!
+		
+		monologue
+		I couldn't help it. I laughed. 
+		
+		character You
+		// Multi-line dialog
+		line
+		Oh no, of course not. You're right all the time, every time. I promise. 
+		
+		monologue
+		She shoved against me playfully, sticking her tongue out at me. 
+		
+		character Jane 
+		expression Camping Pouting
+		// Multi-line dialog
+		line
+		Huh?? What's that supposed to mean! I don't like your tone, sweetie!
+		
+		character You
+		// Multi-line dialog
+		line
+		It means what I said silly! You're obviously always right!
+		
+		monologue
+		We laughed, bumping against each other. Falling into a comfortable silence, I wrapped my arm around her 
+		shoulders again, squeezing her close.
+		
+		character You
+		// Multi-line dialog
+		line
+		You're...probably right. Things will work out fine. We'll manage, somehow.
+
+		hidecharacter
+		background black
+		
+		monologue
+		I remember Jane being so positive that we'd make it through college together. She was always smiling, 
+		always positive...Always so sure of herself and what she was going to do. 
+		
+		monologue
+		I shook my head, sighing as I tapped the delete button. Watching as the picture of Jane dissappeared,
+		I frowned, thinking back to that day.
+		
+		
+	exitbranch janecampflashback
+		
+	branch finalalbum
+
+		background black
+		
+		monologue
+		Swiping to the next screen, I felt my chest ache as I saw what pictures waited for me there.
+		
+		monologue
+		Looking at these photos still made my heart hurt.
+		
+		monologue
+		Jane looked so happy in this photo. I remember how proud she'd been, getting that letter. We'd both 
+		gotten our letters on the same day, and she'd come over right away to talk about it.
+		
+	exitbranch finalalbum
+
+	branch collegeAcceptance
+		
+		background College acceptance day, in the past with Jane
+		
+		character Jane 
+		expression Grad Happy
+		// Multi-line dialog
+		line
+		Ta-Da! I can't believe it! I got in! I'm going to Oak Hills! I got in!!
+		
+		monologue
+		I smiled, rolling my eyes. Having snapped the picture, I walked towards her, offering her a hug.
+		She laughed, walking towards me, hugging me tightly. 
+		
+		character You
+		// Multi-line dialog
+		line
+		As if their was ever a doubt! I knew you'd get in!
+		
+		monologue
+		Even though we were hugging each other, I couldn't help the gnawing feeling eating away at my stomach.
+		
+		monologue
+		I had to admit, part of me was hoping one of us wouldn't get into the college we'd applied to. 
+		It was selfish, I know, but...
+		
+		monologue
+		If it meant we never had to be away from each other, I'd take whatever I could get. Sighing, 
+		I stepped back, offering Jane a weak smile.
+		
+		character You
+		// Multi-line dialog
+		line
+		So...Now what? What's Miss Jane's big plan now?
+		
+		character Jane 
+		expression Grad Laughing
+		// Multi-line dialog
+		line
+		I guess now I had better start thinking about what I want to take with me when I move! I only have
+		this summer to get ready! 
+		
+		monologue
+		This summer. I felt the sinking feeling enter my stomach again and I sighed, looking away from Jane.
+		
+		monologue
+		She was so bright and happy, so glowing, and thinking about being away from her made my chest hurt.
+		She tilted her head, curious.
+		
+		character Jane 
+		expression Grad Confused
+		// Multi-line dialog
+		line
+		Hey. Is something wrong? You look a little lost. 
+		
+		monologue
+		I bit my lip, glancing towards her. She looked so earnest and worried. I thought of the future
+		Jane had ahead of her. 
+		
+		monologue
+		I thought about how in just a few short months she'd be off to college and
+		I'd be stuck here, alone. 
+		
+		monologue
+		Swallowing hard, I nodded, turning to face her.
+		
+		character You
+		// Multi-line dialog
+		line
+		Yeah. Jane, I think...we need to talk. Let's go sit down. 
+		
+		hidecharacter
+		
+		background black
+		
+		monologue
+		Thinking about that day made me angry. Angry that I had ruined a day that meant so much to Jane.
+		In this photo, she was shining. I had never seen her happier. 
+		
+		monologue
+		She was so proud of herself. And with just a few words, I had ruined everything. I couldn't forget the sight of her leaving my house
+		in tears because I'd broken up with her. 
+		
+		character You
+		// Multi-line dialog
+		line
+		No point dwelling on things I can't change now. 
+		
+		monologue
+		Tapping the delete function, I watched as the last of my photos with Jane dissappeared. 
+		
+	exitbranch collegeAcceptance
+
+	branch texting
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Hey there! I know it's been a while, but I thought you should know that today I graduated!
+		
+		TEXT
+		character You
+		// Multi-line dialog
+		line Oh wow! Congratulations! What was it like?
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		It was hard. But you know, it was also fun. Whenever I felt like I couldn't do it, I just thought of
+		how you used to kick my butt into gear during all those boring history tests.
+		
+		TEXT
+		character You
+		// Single-line dialog
+		line
+		You always did hate history.
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Yeah. I still do lol. So, how have you been?
+		
+		TEXT
+		character You
+		// Multi-line dialog
+		line
+		Oh you know. It's been good. Same old same old here. 
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Taking it day by day like always huh? You always were that kind of person. Actually, I messaged you
+		for another reason. I've been thinking about high school recently...Which means I've kind of been 
+		thinking about you too.
+		
+		TEXT
+		character You
+		// Multi-line dialog
+		line
+		Oh? What have you been thinking about?
+		
+		TEXT
+		character Jane
+		// Single-line dialog
+		line
+		Do you remember our first date?
+
+		options
+			
+			option Yes, I remember. The restaurant, right? 
+			jump good1
+			
+			option No, I can't say I do remember. 
+			jump bad1
+			
+		endoptions
+	exitbranch texting
+
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+		
+	branch good1
+		TEXT
+		character You
+		line Yes, I remember. The restaurant, right? 
+
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Yeah! That's right! I was just thinking about that the other day! Wasn't the food there great? I want
+		to go back again soon!
+		
+		directive GOODPOINT
+		
+		jump question2
+	exitbranch good1
+
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+		
+	// If you click the bad choice
+	branch bad1
+		TEXT
+		character You
+		line No, I can't say I do remember. 
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Oh...That's a bummer. I was thinking about going back there the next time I was in town...
+		
+		directive BADPOINT
+		
+		jump question2
+	exitbranch bad1
+
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+		
+	// Both choices lead to the same dialog
+	branch question2
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		I was also thinking about that time we went star gazing. Do you remember? It was right after exams
+		I think?
+
+		options
+			
+			option Yeah, we went camping for the weekend, didn't we? 
+			jump good2
+			
+			option Sorry, it doesn't ring any bells. 
+			jump bad2
+			
+		endoptions
+	exitbranch question2
+		
+		// If you click the good choice
+		
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+		
+	branch good2
+		TEXT 
+		character You
+		line Yeah, we went camping for the weekend, didn't we? 
+
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Yeah, that's right! We spent that whole weekend together! That was a whole lot of fun! I haven't
+		really been camping since!
+		
+		directive GOODPOINT
+		
+		jump question3
+
+		// If you click the bad choice 
+	exitbranch good2
+
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+		
+	branch bad2
+		TEXT 
+		character You
+		line Sorry, it doesn't ring any bells. 
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Ah...I see. Maybe I'm the only one thinking about this stuff then, haha. 
+		
+		directive BADPOINT
+		
+		jump question3
+		
+		// Both Choices lead to the same dialog
+	exitbranch bad2
+		
+		
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+
+	branch question3
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		I was also thinking...about the day I got into college. You got your letter that day too, right? Do
+		you remember?
+		
+		options
+		
+			option How could I ever forget that day? You were shining so bright that evening. 
+			jump good3
+			
+			option That was such a long time ago. How do you expect me to remember that? 
+			jump bad3
+			
+		endoptions
+	exitbranch question3
+		
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+
+	branch good3
+		TEXT
+		character You
+		line How could I ever forget that day? You were shining so bright that evening. 
+
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Shining? I see you're as cheesy as always, haha!
+		
+		directive GOODPOINT
+		
+		jump finalDispatch
+	exitbranch good3
+		
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+
+	branch bad3
+		TEXT
+		character You
+		line That was such a long time ago. How do you expect me to remember that? 
+		
+		TEXT
+		character Jane
+		// Single-line dialog
+		line
+		I guess it was a long time ago...
+		
+		directive BADPOINT
+		
+		jump finalDispatch
+	exitbranch bad3
+
+	// ========================================================================
+	// ========================================================================
+	// ========================================================================
+
+	branch finalDispatch
+		
+		directive finalDispatch
+		
+	exitbranch finalDispatch
+		
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+		
+	branch good ending
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Hey. I'm sorry it took me so long to get in touch. Life has been busy you know?
+		
+		TEXT
+		character You
+		// Multi-line dialog
+		line
+		Yeah, no problem! I know how it is. 
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		There's one more thing I wanted to mention. Since I'm done with school now, I'm going to be heading 
+		back home...If you still live in the area, maybe we could hang out? Grab a bite to eat or a coffee
+		or something?
+		
+		monologue
+		My heart hammered in my chest as I smiled, my fingers hovering over the keyboard. After all this time
+		I could hardly believe it. Jane was asking to see me. Was it some sort of sign that I saw all those
+		pictures today? I hadn't looked at them in ages, but the moment I did, Jane came back into my 
+		life. 
+		
+		TEXT
+		character You
+		// Multi-line dialog
+		line
+		Yeah. That sounds really nice, actually. Text me whenever you get in town, we'll work something out. 
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Okay! I can't wait! I'll talk to you again soon!
+		
+		monologue
+		I smiled, feeling lighter than I had when I came home. I couldn't believe it. I was going to see 
+		Jane again after all this time. 
+		
+		monologue
+		Yawning, I realized the excitement of the day coupled with 
+		talking to Jane again after all this time left me feeling exhausted. Tapping the messaging app shut, 
+		I stood up, moving to get ready for bed. 
+		
+		monologue
+		I found myself eagerly awaiting the next few days. After all, I was finally going to be back in Jane's life. And I'd been hoping for 
+		that for a long time. A few days couldn't pass soon enough. 
+		
+		directive end
+		
+	exitbranch good ending
+		
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+	// ==============================================================================================================
+		
+	branch bad ending
+
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		I guess it has been a while since we've spoken, hasn't it? I mean, it's been years since high school.
+		I can't expect you to remember everything that happened back then.
+		
+		monologue
+		It wasn't that I didn't remember. After all, I had spent today reminiscing about the past. 
+		
+		monologue
+		No, instead I found myself not wanting to tell Jane I remembered everything. After all like she had said, it had been years since the 
+		last time we'd spoken to each other. 
+		
+		monologue
+		What was the point of talking about the past now?
+		
+		TEXT
+		character You
+		// Single-line dialog
+		line
+		I suppose it has been a while.
+		
+		monologue
+		It took Jane a while to respond, like she didn't know what to say to me. I found myself feeling 
+		anxious, staring at the messaging app in anticipation. Finally, I got a reply.
+		
+		TEXT
+		character Jane
+		// Multi-line dialog
+		line
+		Well, I just thought I'd check in! I hope things are going well! Maybe I'll see you around.
+		
+		TEXT
+		character You
+		// Multi-line dialog
+		line
+		Yeah maybe. Good bye, Jane. 
+		
+		monologue
+		I found myself staring at the texting app for a moment longer before tapping the delete button. 
+		I didn't see any point in keeping her message around. 
+		
+		monologue
+		It wasn't like I'd be talking to her again any time soon. Sighing, I closed my phone, standing up. 
+		
+		monologue
+		It was time for bed. After all, I had work in the morning. Their wasn't any time to be lounging around like this. It was time for sleep.
+
+		monologue
+		I'd deal with my feelings some other time...Another day. 
+
+		directive end
+		
+	exitbranch bad ending
+	";
+}

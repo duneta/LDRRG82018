@@ -230,7 +230,7 @@ public class NovelRunner : MonoBehaviour {
 			{ Advance(); }
 			else if (state == RunnerStates.waitOnInput)
 			{
-				if (Input.GetButtonDown("Jump"))
+				if (Input.GetKeyDown(KeyCode.Space))
 				{ Advance(); }
 			}
 			else if (state == RunnerStates.waitOnTimer)
