@@ -42,6 +42,8 @@ public class NovelRunner : MonoBehaviour {
 
 	public Phone phone;
 
+	public string lastCharacterExpressionRequest;
+
 	void Awake()
 	{
 		Scrollbar bar = GetComponent<Scrollbar>();
@@ -116,7 +118,8 @@ public class NovelRunner : MonoBehaviour {
 				{ 
 					characterGraphic.gameObject.SetActive(true);
 					characterGraphic.sprite = marshal.Character(character.name,null);
-					characterGraphic.rectTransform.sizeDelta = Scale(Screen.height, 1080, characterGraphic.sprite.rect.size);
+					characterGraphic.rectTransform.sizeDelta = Scale(characterGraphic.sprite.rect.size.y, 1080, 
+						characterGraphic.sprite.rect.size);
 				}
 				title.text = ((NovelCharacter) frame).name;
 				message.text = string.Empty;
@@ -129,7 +132,8 @@ public class NovelRunner : MonoBehaviour {
 				{ 
 					characterGraphic.gameObject.SetActive(true);
 					characterGraphic.sprite = marshal.Character(expression.character,(string)expression.payload);
-					characterGraphic.rectTransform.sizeDelta = Scale(Screen.height, 1080, characterGraphic.sprite.rect.size);
+					characterGraphic.rectTransform.sizeDelta = Scale(characterGraphic.sprite.rect.size.y, 1080, 
+						characterGraphic.sprite.rect.size);
 				}
 
 				title.text = ((NovelExpression)frame).character;
@@ -146,8 +150,7 @@ public class NovelRunner : MonoBehaviour {
 			} break;
 			case Tokens.hidecharacter:
 			{
-				title.text = "HIDE CHARACTER";
-				message.text = (string) frame.payload;
+				characterGraphic.gameObject.SetActive(false);
 				StartTimer(); 
 			} break;
 			case Tokens.directive:

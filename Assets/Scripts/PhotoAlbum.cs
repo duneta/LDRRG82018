@@ -69,7 +69,7 @@ public class PhotoAlbum : MonoBehaviour {
 				GameObject.Instantiate(imageCarrier,transform.position + (i*displace), transform.rotation, 
 				picOwner.transform);
 			Image image = imageObjects[i].GetComponent<Image>();
-			image.sprite = Album(albumIndex)[imageIndex];
+			image.sprite = Album(albumIndex)[i];
 			Vector2 size = image.sprite.rect.size;
 
 			if (size.x > maxSize.x)
@@ -101,7 +101,6 @@ public class PhotoAlbum : MonoBehaviour {
 	{
 		timer = Time.time;
 		timerOn = true;
-		Debug.Log("THEN");
 	}
 	
 	// Update is called once per frame

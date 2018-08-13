@@ -69,13 +69,13 @@ public class Phone : MonoBehaviour {
 
 		textOwner.GetComponent<RectTransform>().position 
 			= //textOwner.transform.parent.GetComponent<RectTransform>().position 
-			  (Vector3) offset + new Vector3(0, totalHeight*(weirdScale) ,0);
+			  new Vector3(offset.x, offset.y  + totalHeight*(weirdScale) ,0);
 	}
 
 	public void SlideTo(UnityAction final, Vector3 target)
 	{
 		restingPoint = target;
-		TimerStart(0.5f, 
+		TimerStart(1f, 
 		(float n) => {
 			transform.position = Vector3.Lerp(transform.position, restingPoint, n);
 		}, ()=>{transform.position = restingPoint; final.Invoke();});

@@ -15,6 +15,10 @@ public class GameChain : MonoBehaviour {
 	public GameObject photoSet2;
 	public GameObject photoSet3;
 
+	public Vector3 phoneOnScreenPosition;
+	public Vector3 phoneCenterScreen;
+	public Vector3 phoneOffScreenPosition;
+
 	// Use this for initialization
 	void Start () {
 		runner.BeginStory("prolog", EndProlog);
@@ -27,21 +31,10 @@ public class GameChain : MonoBehaviour {
 
 	public void EndProlog()
 	{
-		phone.SlideTo(StartUnlock, new Vector3(Screen.width * (0.75f), Screen.height/2.0f, 0));
-		runner.gameObject.SetActive(false);
-	}
-	 public void StartUnlock()
-	 {
-		 phone.ShowApps();
-		runner.gameObject.SetActive(true);
-		runner.BeginStory("unlock", EndUnlock);
-	 }
-
-	 public void EndUnlock() 
-	 {
+		phone.SlideTo(DoNothing, phoneCenterScreen);
 		runner.gameObject.SetActive(false);
 		NovelDisplay.gameObject.SetActive(false);
-	 }
+	}
 
 	 bool guard1 = false;
 	 public void StartAlbum1()
@@ -56,6 +49,7 @@ public class GameChain : MonoBehaviour {
 
 	 public void StartAlbum1Commentary()
 	 {
+		phone.SlideTo(DoNothing, phoneOnScreenPosition);
 		phone.SetLock(true);
 		runner.gameObject.SetActive(true);
 		NovelDisplay.gameObject.SetActive(true);
@@ -66,15 +60,14 @@ public class GameChain : MonoBehaviour {
 	 {
 		 phone.SlideTo(()=>{
 			 runner.BeginStory("janeatrestaurant",EndRestaurant);
-		 }, 
-		 new Vector3(Screen.width * (2.75f), Screen.height/2.0f, 0));
+		 }, phoneOffScreenPosition);
 	 }
 
 	 public void EndRestaurant()
 	 {
 		 runner.BeginStory("restaurantphoto2", 
 		 ()=>{
-			 phone.SlideTo(StartAlbum2, new Vector3(Screen.width * (0.75f), Screen.height/2.0f, 0));
+			 phone.SlideTo(StartAlbum2, phoneOnScreenPosition);
 		 });
 	 }
 
@@ -103,10 +96,9 @@ public class GameChain : MonoBehaviour {
 		 phone.SlideTo(()=>{
 			 runner.BeginStory("janecampflashback",
 			 ()=>
-			 {phone.SlideTo(Album3, new Vector3(Screen.width * (0.75f), Screen.height/2.0f, 0));}
+			 {phone.SlideTo(Album3, phoneOnScreenPosition);}
 			 );
-		 }, 
-		 new Vector3(Screen.width * (2.75f), Screen.height/2.0f, 0));
+		 }, phoneOffScreenPosition);
 
 	 }
 	
@@ -133,9 +125,9 @@ public class GameChain : MonoBehaviour {
 	{
 		 phone.SlideTo(()=>{
 			 runner.BeginStory("collegeAcceptance",
-			 ()=>{phone.SlideTo(Gobacktoapps, new Vector3(Screen.width * (0.75f), Screen.height/2.0f, 0)); });
+			 ()=>{phone.SlideTo(Gobacktoapps, phoneOnScreenPosition); });
 		 }, 
-		 new Vector3(Screen.width * (2.75f), Screen.height/2.0f, 0));
+		 phoneOffScreenPosition);
 	}
 
 	public void Gobacktoapps()

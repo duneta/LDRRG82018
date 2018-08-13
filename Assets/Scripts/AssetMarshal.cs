@@ -26,6 +26,8 @@ public class AssetMarshal : MonoBehaviour {
 	private int goodpoints;
 	private int badpoints;
 
+	private string lastCharacterExpresssionRequest;
+
 	// Use this for initialization
 	void Awake () {
 		unfoundItems = new List<string>();
@@ -85,7 +87,7 @@ public class AssetMarshal : MonoBehaviour {
 		for (int i = 0; i < backNames.Length; i++)
 		{
 			string candidate = backNames[i];
-			if (candidate == name)
+			if (candidate==name)
 			{
 				return backSprites[i];
 			}
@@ -98,13 +100,16 @@ public class AssetMarshal : MonoBehaviour {
 
 	public Sprite Character(string name, string emote)
 	{
-		emote = emote ?? "Happy";
 		string descriptor = name + "|" + emote;
+		if (emote == null) {descriptor = lastCharacterExpresssionRequest;}
+		if (emote == null) {descriptor = name + "|";}
+		lastCharacterExpresssionRequest = descriptor;
 		for (int i = 0; i < charNames.Length; i++)
 		{
 			string candidate = charNames[i];
-			if (candidate == descriptor)
+			if (candidate.StartsWith(descriptor))
 			{
+				lastCharacterExpresssionRequest = descriptor;
 				return charSprites[i];
 			}
 		}
