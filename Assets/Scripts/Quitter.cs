@@ -16,4 +16,9 @@ public class Quitter : MonoBehaviour {
 			Application.Quit();
 		}
 	}
+
+	void Callable()
+	{
+		
+	}
 }

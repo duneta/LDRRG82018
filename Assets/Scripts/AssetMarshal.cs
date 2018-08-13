@@ -77,6 +77,7 @@ public class AssetMarshal : MonoBehaviour {
 		}
 		if (!unfoundItems.Contains(name))
 		{ unfoundItems.Add(name);}
+		Log();
 	}
 
 	public Sprite Background(string name)
@@ -91,6 +92,7 @@ public class AssetMarshal : MonoBehaviour {
 		}
 		if (!unfoundItems.Contains(name))
 		{ unfoundItems.Add(name);}
+		Log();
 		return null;
 	}
 
@@ -110,6 +112,18 @@ public class AssetMarshal : MonoBehaviour {
 		{ unfoundItems.Add(descriptor);}
    		//throw new System.Exception("AssetMarshal recieved a request for character:"
 		//	+descriptor+" but asset could not be found.");
+		Log();
 		return null;
 	}
+
+	public void Log()
+	{
+		string log = string.Empty;
+		foreach (string item in unfoundItems)
+		{
+			log+=item+"\n";
+		}
+		Debug.Log(log);
+	}
 }
+

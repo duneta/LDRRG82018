@@ -5314,7 +5314,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c03e6d68905cf4c429d8fb6e9d00cc1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58261011b1dbad14bb0dd4ea7a76683e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5934,43 +5934,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backSprites:
-  - {fileID: 21300000, guid: ed039ba077e99e64ba8d85ba91b9c8ea, type: 3}
-  - {fileID: 21300000, guid: 72110d3952e98934786536573efa6bca, type: 3}
-  - {fileID: 21300000, guid: f6c75872c684c104782db1f1c515b72a, type: 3}
-  - {fileID: 21300000, guid: 751df6a25064c7c4b855ac2173ced7d4, type: 3}
+  - {fileID: 21300000, guid: 95f9ca7b6a0e71e47ab6897e4b8b6d40, type: 3}
+  - {fileID: 21300000, guid: a755f0d5b3c0d114e924658804ecf9ff, type: 3}
+  - {fileID: 21300000, guid: 42a2330858099a14fb4d625e63ce265d, type: 3}
+  - {fileID: 21300000, guid: 58261011b1dbad14bb0dd4ea7a76683e, type: 3}
   backNames:
   - black
   - restaurant
   - jane camping in the past
   - College acceptance day, in the past with Jane
   charSprites:
-  - {fileID: 21300000, guid: 4355be4bed87f9b4e9927039adfb4644, type: 3}
-  - {fileID: 21300000, guid: a161e3105ef5ca74cba5b19f8732d15e, type: 3}
-  - {fileID: 21300000, guid: d5622c8e51158be479ccff70ed5e33a0, type: 3}
-  - {fileID: 21300000, guid: f5e9a25cf1d6d8241b219a384383e7da, type: 3}
-  - {fileID: 21300000, guid: c65a012ff911e94489d335fb5f58867a, type: 3}
-  - {fileID: 21300000, guid: 401682875a112e04dbb79bee301f3121, type: 3}
-  - {fileID: 21300000, guid: 6d9eb937e09ee784f852acafb73e89dd, type: 3}
-  - {fileID: 21300000, guid: f80f367051ce36243bc2608b1941529f, type: 3}
-  - {fileID: 21300000, guid: 2bca7293dac9ca2459ae2cad6f3e7093, type: 3}
-  - {fileID: 21300000, guid: c65a012ff911e94489d335fb5f58867a, type: 3}
-  - {fileID: 21300000, guid: 6d9eb937e09ee784f852acafb73e89dd, type: 3}
-  - {fileID: 21300000, guid: 4355be4bed87f9b4e9927039adfb4644, type: 3}
-  - {fileID: 21300000, guid: a161e3105ef5ca74cba5b19f8732d15e, type: 3}
+  - {fileID: 21300000, guid: 60404148f7e951646987c44d3b7f8acc, type: 3}
+  - {fileID: 21300000, guid: dd6d0cf07a5e7184786c0be4200cf87d, type: 3}
+  - {fileID: 21300000, guid: 94a378bbb6a135549b055a1c7d34c212, type: 3}
+  - {fileID: 21300000, guid: 1c847a3f47ab58646993b4958c38e061, type: 3}
+  - {fileID: 21300000, guid: 0e1a8410fde5eca4abe2850de71e44f8, type: 3}
+  - {fileID: 21300000, guid: b8baa7d66897605419b320b59b2c024f, type: 3}
+  - {fileID: 21300000, guid: 806689fd29ed95549aa4fafdf7be622f, type: 3}
+  - {fileID: 21300000, guid: 2ba6f5e15a84fc14eb2565e10471c842, type: 3}
+  - {fileID: 21300000, guid: 17435d49d399b24419ea8025269ef22a, type: 3}
+  - {fileID: 21300000, guid: 3b82452d7ca37d9488e90eb97c301139, type: 3}
+  - {fileID: 21300000, guid: cbefc92c74becbc43ab3e8ea561ef693, type: 3}
+  - {fileID: 21300000, guid: bce2779b177c49b4bb6fac0d26934ca9, type: 3}
+  - {fileID: 21300000, guid: 3df23ae356c24214fa2e17c94c3c70e4, type: 3}
+  - {fileID: 21300000, guid: c83e2d9ef094ee84a851bfbf16312c8a, type: 3}
+  - {fileID: 21300000, guid: 11291291adaa1c942a833292eb7522e3, type: 3}
+  - {fileID: 21300000, guid: 856fd8fb810305c488330ebf65714bdc, type: 3}
+  - {fileID: 21300000, guid: 3dbd0dc12f6c26345a86de78e6aee976, type: 3}
+  - {fileID: 21300000, guid: 7d707c225cab8d149ba2e47f17407f46, type: 3}
+  - {fileID: 21300000, guid: 01c6551fba067b742acf6afcd550c345, type: 3}
+  - {fileID: 21300000, guid: 1218919a18746924a9539d473ed473a5, type: 3}
   charNames:
-  - Jane|Sly Grin
-  - Jane|uncomfortable
-  - Jane|Happy
-  - Jane|excited
-  - Jane|Thinking
-  - Jane|Blushing
-  - Jane|Laughing
-  - Jane|surprised
-  - Jane|Confused
-  - Jane|Pouting
-  - Jane|thoughtful
-  - Jane|Sad
-  - Jane|Smiling
+  - Jane Dinner|Happy
+  - Jane Dinner|uncomfortable
+  - Jane Dinner|excited
+  - Jane Dinner|Thinking
+  - Jane Dinner|Blushing
+  - Jane Dinner|Laughing
+  - Jane Dinner|surprised
+  - Jane Dinner|Sly Grin
+  - Jane Camping|Happy
+  - Jane Camping|surprised
+  - Jane Camping|Sly Grin
+  - Jane Camping|Confused
+  - Jane Camping|Pouting
+  - Jane Camping|Laughing
+  - Jane Camping|thoughtful
+  - Jane Camping|Sad
+  - Jane Camping|Smiling
+  - Jane Grad|Happy
+  - Jane Grad|Laughing
+  - Jane Grad|Confused
   unfoundItems: []
   runner: {fileID: 2049005393}
   novelDisplay: {fileID: 253722650}
